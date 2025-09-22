@@ -19,3 +19,16 @@ buildscript {
 }
 
 apply plugin: "com.facebook.react.rootproject"
+
+// ✅ เพิ่ม block นี้เพื่อบังคับใช้ play-services-location 21.0.1
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    configurations.all {
+        resolutionStrategy {
+            force "com.google.android.gms:play-services-location:21.0.1"
+        }
+    }
+}
